@@ -7,6 +7,10 @@ function get_todos() {
     return todos;
 }
 
+function exit_app() {
+  navigator.app.exitApp();
+}
+
 function add() {
     var task = document.getElementById('task').value;
 
@@ -35,7 +39,7 @@ function show() {
 
     var html = '<ul>';
     for(var i=0; i<todos.length; i++) {
-        html += '<li>' + todos[i] + '<button class="remove" id="' + i  + '">x</button></li>';
+        html += '<li>' + todos[i] + '&nbsp;&nbsp;<button class="remove" id="' + i  + '">remove</button></li>';
     };
     html += '</ul>';
 
@@ -49,3 +53,5 @@ function show() {
 
 document.getElementById('add').addEventListener('click', add);
 show();
+
+document.getElementById('exit').addEventListener('click', exit_app);
